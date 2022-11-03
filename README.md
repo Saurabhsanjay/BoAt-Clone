@@ -114,7 +114,7 @@ Nike Clone is MERN Stack e-commerce web application that allows you to buy earph
 
 ## Test Coupon Codes
 ```
-NIKE5 (for 5% Off)
+BOAT10 (for 10% Off)
 
 
 ```
