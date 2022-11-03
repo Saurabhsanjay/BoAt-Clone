@@ -59,7 +59,7 @@ Nike Clone is MERN Stack e-commerce web application that allows you to buy earph
 
 <br />
 
-## Screens ( All screens are responsive along with Dark Mode)
+## Screens ( All screens are responsive )
 - Homepage / Landing Page
 - Product Listing Page with Filters
 - Product Description Page
@@ -125,7 +125,7 @@ NIKE5 (for 5% Off)
 
 <h2>Demo</h2>
 
-[Click here to see the presentation video of this project](https://www.linkedin.com/posts/m-sehrawat_reactjs-nike-nikecareers-activity-6947552300534042624-me2_?utm_source=linkedin_share&utm_medium=member_desktop_web)
+[Click here to see the presentation of this project](https://boat-app-mu.vercel.app/)
 
 
 <br />
@@ -133,7 +133,7 @@ NIKE5 (for 5% Off)
 
 ## Getting Started
 
-This project was built using React, Redux, Chakra UI, HTML, CSS, JavaScript, Rest API, Node JS, Express and MongoDB with JWT and RazorPay integration. It is an e-commerce web application and for running on your local environment you should follow these guidelines.
+This project was built using React, Chakra UI, HTML, CSS, JavaScript, Rest API, Node JS, Express and MongoDB . It is an e-commerce web application and for running on your local environment you should follow these guidelines.
 
 
 ### Prerequisites
