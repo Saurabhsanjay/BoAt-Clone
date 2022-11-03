@@ -51,11 +51,11 @@
 </p>
 
 
-Nike Clone is MERN Stack e-commerce web application that allows you to buy earphones & headsets online. It has a variety of categories, just visit the product listing page and you will see all the products, apply filters as per your need and in just a few clicks you can buy any products from the website. This project is just for educational purpose.
+Boat Clone is MERN Stack e-commerce web application that allows you to buy earphones & headsets online. It has a variety of categories, just visit the product listing page and you will see all the products, apply filters as per your need and in just a few clicks you can buy any products from the website. This project is just for educational purpose.
 
 
 
-![cover](https://user-images.githubusercontent.com/91532881/175955112-da88c18c-ac5e-455a-9ac5-047c7db4f894.png)
+![cover](https://www.canva.com/design/DAFQ6LGv5J8/m6WzWMrrEitgSwUgyBDo1g/view?utm_content=DAFQ6LGv5J8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 <br />
 
