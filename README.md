@@ -274,7 +274,7 @@ To run this project, you will need to add the following environment variables to
 
 If you want to contact me, you can reach me through below handles.
 
-[![linkedin](https://img.shields.io/badge/SAURABH_UBALE-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/m-sehrawat/)
+[![linkedin](https://img.shields.io/badge/SAURABH_UBALE-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/saurabh-ubale-035a18234/)
 [![GitHub](https://img.shields.io/badge/SAURABH%20UBALE-20232A?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/Saurabhsanjay/)
 
 © 2022 Saurabh Ubale
