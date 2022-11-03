@@ -96,17 +96,17 @@ Boat Clone is MERN Stack e-commerce web application that allows you to buy earph
 
 <table>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955122-200a6ccb-54a5-4f39-9bc2-cd3ba3a4d102.jpeg" alt="home" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955109-b51e3e81-4cd8-4f00-a8cd-873c82882a15.png" alt="coupons" /></td>
+    <td><img src="https://i.im.ge/2022/11/03/2HSmux.miannew.jpg" alt="home" /></td>
+    <td><img src="https://i.im.ge/2022/11/03/2HS5PL.responsive.jpg" alt="responsive" /></td>
   </tr>
-  <tr>
+<!--   <tr>
     <td><img src="https://user-images.githubusercontent.com/91532881/175955141-44aefea0-a9ee-4c3a-93e0-094ca9214e54.jpeg" alt="signup" /></td>
     <td><img src="https://user-images.githubusercontent.com/91532881/175955129-e5392377-e72a-4868-883f-5a244fc9bc87.jpeg" alt="login" /></td>
-  </tr>
-  <tr>
+  </tr> -->
+<!--   <tr>
     <td><img src="https://user-images.githubusercontent.com/91532881/175955097-9fe2e5a5-b4f4-4c1f-beb7-4080186e5a17.jpeg" alt="allProducts" /></td>
     <td><img src="https://user-images.githubusercontent.com/91532881/175957017-3530fe22-46ae-4bf7-a645-55f7a5f25ed9.jpeg" alt="men" /></td>
-  </tr>
+  </tr> -->
  
 </table>
 
