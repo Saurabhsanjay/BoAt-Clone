@@ -96,8 +96,8 @@ Boat Clone is MERN Stack e-commerce web application that allows you to buy earph
 
 <table>
   <tr>
-    <td><img src="https://i.im.ge/2022/11/03/2HSmux.miannew.jpg" alt="home" /></td>
-    <td><img src="https://i.im.ge/2022/11/03/2HS5PL.responsive.jpg" alt="responsive" /></td>
+    <td><img src="https://i.im.ge/2022/11/03/2HSAn6.newest.jpg" alt="home" /></td>
+    <td><img src="https://i.im.ge/2022/11/03/2HSxPK.responsive.jpg" alt="responsive" /></td>
   </tr>
 <!--   <tr>
     <td><img src="https://user-images.githubusercontent.com/91532881/175955141-44aefea0-a9ee-4c3a-93e0-094ca9214e54.jpeg" alt="signup" /></td>
