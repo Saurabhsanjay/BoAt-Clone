@@ -193,13 +193,6 @@ To install all the dependences of the project, run the following command:
 
 
 ```
-cd client
-
-npm install
-
-cd ../
-
-cd server
 
 npm install
 ```
