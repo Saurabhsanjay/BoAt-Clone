@@ -1,4 +1,4 @@
-<h1 align="center">Nike Clone</h1>
+<h1 align="center">Boat Clone</h1>
 
 <h3 align="center">It's a MERN Stack E-commerce web application with all the major functionalities</h3>
 
@@ -30,11 +30,7 @@
 </p>
 
 
-<h4 align="center">Payment Gateway:</h4>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF" alt="razorpay" />
-</p>
 
 
 <h4 align="center">Deployed On:</h4>
@@ -58,7 +54,7 @@
 </p>
 
 
-Nike Clone is MERN Stack e-commerce web application that allows you to buy shoes & clothes online with payment gateway integration. It has a variety of categories, just visit the product listing page and you will see all the products, apply filters as per your need and in just a few clicks you can buy any products from the website. This project is just for educational purpose.
+Nike Clone is MERN Stack e-commerce web application that allows you to buy earphones & headsets online. It has a variety of categories, just visit the product listing page and you will see all the products, apply filters as per your need and in just a few clicks you can buy any products from the website. This project is just for educational purpose.
 
 
 
@@ -83,7 +79,6 @@ Nike Clone is MERN Stack e-commerce web application that allows you to buy shoes
 
 ## 🚀 Features
 - Login and Signup User Account
-- JWT (Json Web Token) Authentication and BcryptJS Password Hashing 
 - Product Filters Based on Price, Category, Size, Color and Gender
 - Product Sorting Based on Price, Rating and Name
 - Product Filtering and Sorting works together 
@@ -99,7 +94,7 @@ Nike Clone is MERN Stack e-commerce web application that allows you to buy shoes
 
 <br />
 
-## Glimpses of Nike-Clone 🙈 :
+## Glimpses of Boat-Clone 🙈 :
 
 
 <table>
@@ -115,22 +110,7 @@ Nike Clone is MERN Stack e-commerce web application that allows you to buy shoes
     <td><img src="https://user-images.githubusercontent.com/91532881/175955097-9fe2e5a5-b4f4-4c1f-beb7-4080186e5a17.jpeg" alt="allProducts" /></td>
     <td><img src="https://user-images.githubusercontent.com/91532881/175957017-3530fe22-46ae-4bf7-a645-55f7a5f25ed9.jpeg" alt="men" /></td>
   </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955142-dd33e21a-49a9-4aeb-89e7-edb3e871828f.jpeg" alt="women" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955126-2874a5c1-8655-40ab-b9ce-67275139e70e.jpeg" alt="kids" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955114-1090036d-2e73-46fa-8aca-8ef9ffab1724.jpeg" alt="description" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955117-edff5eaf-7507-4580-b3b8-3aea6c089840.jpeg" alt="descriptionDark" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955106-867749b1-4838-40dc-b184-145f10d1eec2.jpeg" alt="cart" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955107-f93e13a0-6c50-46e8-a5f3-09d15421e97b.jpeg" alt="checkout" /></td>
-  </tr>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955137-828f89b2-648e-4a68-885a-fa3f3f29b55c.png" alt="razorpay" /></td>
-    <td><img src="https://user-images.githubusercontent.com/91532881/175955133-96792a4b-7e70-4e1e-a5cf-999da70a9c95.jpeg" alt="orders" /></td>
-  </tr>
+ 
 </table>
 
 <br />
@@ -139,20 +119,8 @@ Nike Clone is MERN Stack e-commerce web application that allows you to buy shoes
 ```
 NIKE5 (for 5% Off)
 
-NIKE10 (for 10% Off)
 
-NIKE15 (for 15% Off)
-
-NIKE20 (for 15% Off)
-
-NIKE25 (for 25% Off)
-
-NIKE30 (for 30% Off)
 ```
-
-## Razorpay test payment Cards
-
-[Click here to use the razorpay testing payment methods](https://razorpay.com/docs/payments/payments/test-card-upi-details/)
 
 
 <br />
@@ -180,19 +148,19 @@ This project was built using React, Redux, Chakra UI, HTML, CSS, JavaScript, Res
 ### Setup
 
 
-The project repository can be found in [GitHub link](https://github.com/m-sehrawat/Nike-Clone) or just clone the project using this command.
+The project repository can be found in [GitHub link](https://github.com/Saurabhsanjay/BoAt-Clone) or just clone the project using this command.
 
 
 ```
 Using HTTPS
 
-# git clone https://github.com/m-sehrawat/Nike-Clone.git
+# git clone https://github.com/Saurabhsanjay/BoAt-Clone.git
 ```
 
 + Open terminal on your workspace with
 
 ```
-cd /home/workspace/Nike-Clone
+cd /home/workspace/Boat-Clone
 ```
 
 
@@ -246,17 +214,6 @@ To run the application got to the client folder and run the following command:
 npm start
 ```
 
-### Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file in server folder
-
-`JWT_ACCESS_KEY`
-
-`MONGO_PATH`
-
-`RAZORPAY_KEY_ID`
-
-`RAZORPAY_KEY_SECRET`
 
 
 
