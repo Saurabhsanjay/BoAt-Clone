@@ -1,5 +1,5 @@
 import React from 'react'
-
+import  '../../App.css'
 import { FaStar } from 'react-icons/fa'
 
 const Trimmer = ({data}) => {
@@ -34,7 +34,7 @@ const Trimmer = ({data}) => {
                                     <a className='heading' style={{ textAlign: "center",marginTop:"1rem" }}   >{el.name}</a>
                                     <span className='star' style={{ textAlign: "center" }}  >{el.span}</span>
                                     <hr />
-                                    <span className='star' style={{ textAlign: "center" }} > <FaStar color="red" /> <FaStar color="red" /> <FaStar color="red" /> <FaStar color="red" /> {el.rat}</span>
+                                    <span className='star' style={{ textAlign: "center",display:"flex",alignItems:"center",justifyContent:"center" }} > <FaStar color="red" /> <FaStar color="red" /> <FaStar color="red" /> <FaStar color="red" /> {el.rat}</span>
                                     <span className='price' style={{ textAlign: "center" }}  >₹ {el.spanp} <del className='dell' >₹ {el.del}</del></span>
 
                                 </div>

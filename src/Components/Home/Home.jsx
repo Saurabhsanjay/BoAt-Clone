@@ -1,4 +1,5 @@
 import React from 'react'
+import  '../../App.css'
 import { useContext } from 'react';
 import AppContext from '../Context/AppContext';
 import Footer from './Footer';
@@ -10,6 +11,8 @@ import Blogs from './Blogs';
 import AboutSay from './AboutSay';
 import Awards from './Awards';
 import BrandPRomise from './BrandPRomise';
+import ShopbyCategories from './ShopbyCategories';
+import { ChakraProvider } from '@chakra-ui/react';
 
 
 
@@ -23,6 +26,11 @@ console.log(AllData);
     <div>
       <CarouselDiv/>
       <BestSeller data={AllData.bestseller} Text={"Best Seller"} />
+     <ChakraProvider>
+
+      <ShopbyCategories/>
+     </ChakraProvider>
+
       <BestSeller data={AllData.dailydeals} Text={"Daily Deals"} />
      <Trimmer  data={AllData.Trimmer}/>
       <BestSeller data={AllData.SmartWatches} Text={"Smart Watches"} />

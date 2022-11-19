@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+ 
   /* cursor: pointer; */
 
 }
@@ -14,7 +15,7 @@ html {
 }
 
 body {
-  background-color: #141414;
+  background-color: #141414 !important
 }
 
 
@@ -32,7 +33,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin: auto;
-  border: 1px solid;
+  /* border: 1px solid; */
   gap: 1.2rem;
   padding: 0px 50px 0px 50px;
 }
@@ -42,7 +43,7 @@ body {
   margin: auto;
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   margin-top: 5rem;
   gap: 1rem;
   width: fit-content;
@@ -61,7 +62,7 @@ body {
 }
 
 .insidediv {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
   background-color: #e3e3e3;
   padding: 4px;
@@ -70,7 +71,7 @@ body {
 }
 
 .Trimdiv {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   background-color: #e3e3e3;
   padding: 4px;
@@ -495,7 +496,7 @@ color: red;
     width: 3.75rem;
 
     position: relative;
-    top: -13.5rem;
+    top: -10.5rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   .Sayus{

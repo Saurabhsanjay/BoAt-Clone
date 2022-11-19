@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import  '../../App.css'
 import { FaStar } from 'react-icons/fa'
 import HoverImage from "react-hover-image";
 import { NavLink, useNavigate } from "react-router-dom";

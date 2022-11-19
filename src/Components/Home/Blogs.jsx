@@ -1,5 +1,5 @@
 import React from 'react'
-
+import  '../../App.css'
 const Blogs = () => {
   return (
     <div className='mindiv' >

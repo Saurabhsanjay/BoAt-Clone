@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from '../Home/Home'
+import ProductPage from '../Pages/ProductPage'
 
 const AllRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AllRoutes = () => {
    <Route path="/wishlist" element={<h1>Wishlist</h1>}/>
    <Route path="/checkout/payment" element={<h1>Checkout</h1>}/>
    <Route path="/ordersuccess" element={<h1>success</h1>}/>
+   <Route path="/product" element={<ProductPage/>}/>
    
 
    
