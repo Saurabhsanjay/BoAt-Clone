@@ -30,18 +30,28 @@ import {
 import React from 'react'
 
 import logo from './images/logo.jpg'
-
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+ 
 
 const Navbar = () => {
+  const name=localStorage.getItem("email")
+  const handleclear=()=>{
+     localStorage.clear()
+     Navigate('/')
+   }
+   
+
+   const Navigate=useNavigate()
   const { isOpen, onToggle } = useDisclosure();
   const DesktopNav = () => {
     const linkColor = useColorModeValue('gray.600', 'gray.200');
     const linkHoverColor = useColorModeValue('gray.800', 'white');
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
     const { colorMode, toggleColorMode } = useColorMode()
-  
+    
     return (
-      <Stack direction={'row'} spacing={4}>
+      <Stack  direction={'row'} spacing={4}>
         {NAV_ITEMS.map((navItem) => (
           <Box key={navItem.label}>
             <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -217,8 +227,8 @@ const Navbar = () => {
   ];
   return (
    <ChakraProvider>
-    <Box>
-      <Flex
+    <Box >
+      <Flex 
         bg={useColorModeValue('blackAlpha', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH={'40px'}
@@ -259,6 +269,7 @@ const Navbar = () => {
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
+         {  name? <> <Text ml={3} fontSize={'0.8rem'} fontWeight={"semibold"} textAlign={'center'} color={'white'}>{name}</Text> <Button onClick={handleclear} colorScheme={'red'} size={'xs'}>Logout</Button></> : <>
           <Button ml={{base:"10px"}}
            padding='2px 10px'
             color={'white'}
@@ -266,7 +277,9 @@ const Navbar = () => {
             fontSize={'sm'}
             fontWeight={400}
             variant={'link'}
-            href={'#'}>
+            href={'/login'} 
+            onClick={()=>Navigate('/login')}
+            >
             Sign In
           </Button>
           <Button
@@ -280,7 +293,7 @@ const Navbar = () => {
               bg: 'red.300',
             }}>
             Sign Up
-          </Button>
+          </Button> </>}
       
         </Stack>
       </Flex>

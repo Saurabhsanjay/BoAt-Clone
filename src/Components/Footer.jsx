@@ -1,96 +1,145 @@
-import React from 'react'
 import {
-    FaFacebookF,
-    FaTwitter,
-    FaInstagram,
-    FaYoutube,
-    FaLinkedinIn,
- } from "react-icons/fa";
-const Footer = () => {
+  Box,
+  chakra,
+  Container,
+  Link,
+  SimpleGrid,
+  Stack,
+  Text,
+  VisuallyHidden,
+  Input,
+  IconButton,
+  useColorModeValue,
+  Image,
+} from '@chakra-ui/react';
+import { ReactNode } from 'react';
+import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { BiMailSend } from 'react-icons/bi';
+import logo from './images/logo.jpg'
+
+
+const SocialButton = ({
+  children,
+  label,
+  href,
+}: {
+  children: ReactNode;
+  label: string;
+  href: string;
+}) => {
   return (
-    <div>
-      <div className='footer'>
-        <div className=' buthead'>
+    <chakra.button
+      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+      rounded={'full'}
+      w={8}
+      h={8}
+      cursor={'pointer'}
+      as={'a'}
+      href={href}
+      display={'inline-flex'}
+      alignItems={'center'}
+      justifyContent={'center'}
+      transition={'background 0.3s ease'}
+      _hover={{
+        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
+      }}>
+      <VisuallyHidden>{label}</VisuallyHidden>
+      {children}
+    </chakra.button>
+  );
+};
 
-       
-        <img style={{width:"30%"}} src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Boat-Logo_200x.png?v=1600753267" alt="err" />
-          <span className='subs'>Subscribe to email alerts. We promise not to spam your inbox.</span>
-        <div className="footerInputDiv">
-                  <input
-                     type="text"
-                     className="footerInput"
-                     placeholder="Email Address*"
-                  />
-                  <button className="footerBtn">SUBSCRIBE</button>
-               </div>
-               <div className='icons'>
-                <a><FaFacebookF/></a>
-                <a><FaTwitter/></a> 
-                <a><FaInstagram/></a>
-                <a><FaYoutube/></a>
-                <a><FaLinkedinIn/></a>
-               </div>
-        </div>
+const ListHeader = ({ children }: { children: ReactNode }) => {
+  return (
+    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
+      {children}
+    </Text>
+  );
+};
 
-        <div className='shop'>
-            <p>SHOP</p>
-            <a >True Wireless Earbuds</a>
-            <a >Wireless Headphones</a>
-            <a >Wired Headphones</a>
-            <a >Wireless Speakers</a>
-            <a >Home Audio</a>
-            <a >Mobile Accessories</a>
-            <a >Smart Watches</a>
-            <a >TRebel</a>
-            <a >Misfit</a>
-            <a >Gift Card</a>
-            <a >Rock In India</a>
-            <a >Earn Rs.100</a>
-            
-        </div>
+ function Footer() {
+  return (
+    
+    <Box
+      bg={useColorModeValue('BlackAlpha 700', 'gray.900')}
+      color={useColorModeValue('gray.300', 'gray.200')}>
+      <Container as={Stack} maxW={'6xl'} py={10}>
+        <SimpleGrid
+          columns={{base:"2",sm:"4"}}
+          spacing={8}>
 
-        <div className='shop'>
-            <p>HELP</p>
-            <a >Track Your Order</a>
-            <a >Warranty & Support</a>
-            <a >Return Policy</a>
-            <a >Service Centers</a>
-            <a >Bulk Orders</a>
-            <a >FAQs</a>
-           <a >Why Buy Direct</a>
-        </div>
+          <Stack spacing={6}>
+            <Box>
+              <Image borderRadius={4} w={{base:50,sm:100}} src={logo}/> 
+            </Box>
+            <Text fontSize={'sm'}>
+            © 2022 Imagine Marketing Limited. All Rights Reserved.
+            </Text>
+            <Stack direction={'row'} spacing={6}>
+              <SocialButton label={'Twitter'} href={'#'}>
+                <FaTwitter />
+              </SocialButton>
+              <SocialButton label={'YouTube'} href={'#'}>
+                <FaYoutube />
+              </SocialButton>
+              <SocialButton label={'Instagram'} href={'#'}>
+                <FaInstagram />
+              </SocialButton>
+            </Stack>
+          </Stack>
 
-        <div className='shop'>
-             <p>COMPANY</p>
-             <a >About boAt</a>
-             <a >News</a>
-             <a >Read Our Blog</a>
-             <a >Careers</a>
-             <a >Security</a>
-             <a >Terms of Service</a>
-             <a >Privacy Policy</a>
-             <a >Investor Relations</a>
-             <a >Social Responsibility</a>
-             <a >Warranty Policy</a>
+          <Stack align={'flex-start'}>
+            <ListHeader >Shop</ListHeader>
+            <Link  >True Wireless Earbuds</Link>
+            <Link >Wired Headphones</Link>
+            <Link >Home Audio</Link>
+            <Link >Misfit</Link>
+            <Link >Rock In India</Link>
+          </Stack>
 
+          <Stack align={'flex-start'}>
+            <ListHeader>Support</ListHeader>
+            <Link >Help Center</Link>
+            <Link >Terms of Service</Link>
+            <Link >Legal</Link>
+            <Link >Privacy Policy</Link>
+            <Link >FAQs</Link>
+          </Stack>
 
+          <Stack align={'flex-start'}>
+            <ListHeader>Help</ListHeader>
+            <Link >Track Your Order</Link>
+            <Link >Return Policy</Link>
+            <Link >Bulk Orders</Link>
+            <Link >Why Buy Direct</Link>
+            <Link >Service Centers</Link>
+          </Stack>
 
-        </div>
-       
-        
-      </div>
-      <div className='cards'>
-
-<div>  <img  src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Fotter_payment_icn_2_900x_aff68517-98f4-4a82-9aee-2405cea66251_350x.png?v=1650262054" alt="err" /></div>
-<div></div>
-<div className='downlod'><p>DOWNLOAD THE APP</p></div>
-<div><img  src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/google-play.png?v=1608620293" alt="err" /></div>
-<div><img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/app-store.png?v=1608620293" alt="err" /></div>
-</div>
- <p className='Alr'>© 2022 Imagine Marketing Limited. All Rights Reserved.</p>
-
-    </div>
-  )
+          <Stack align={'flex-start'}>
+            <ListHeader>Stay up to date</ListHeader>
+            <Stack direction={'row'}>
+              <Input
+                placeholder={'Your email address'}
+                bg={useColorModeValue('whiteAlpha.100', 'whiteAlpha.100')}
+                border={0}
+                _focus={{
+                  bg: 'whiteAlpha.300',
+                }}
+              />
+              <IconButton
+                bg={useColorModeValue('red.500', 'red.800')}
+                color={useColorModeValue('white', 'gray.800')}
+                _hover={{
+                  bg: 'red.600',
+                }}
+                aria-label="Subscribe"
+                icon={<BiMailSend />}
+              />
+            </Stack>
+          </Stack>
+        </SimpleGrid>
+      </Container>
+    </Box>
+  );
 }
-
 export default Footer

@@ -66,7 +66,7 @@ const Marvel = ({ data, Text }) => {
                                 <img style={{ width: "100%" }} src={el.image} width="100%" />
                                 <div className='textdiv' >
                                     <a className='heading'  >{el.a}</a>
-                                    <span className='star' > <FaStar color="red" />{el.span}</span>
+                                    <span className='star' > <span style={{color:"red"}}>★</span> {el.span}</span>
                                     <hr />
                                     <span className='price' >₹ {el.price} <del className='dell' >₹ {el.del}</del></span>
                                     <p className='save'>{el.save}</p>

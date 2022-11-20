@@ -1,6 +1,10 @@
-import React from 'react'
-import { Box, Button, ChakraProvider, Divider, Flex, Image, SimpleGrid, Text, VStack } from '@chakra-ui/react'
-
+import React,{useEffect} from 'react'
+import { Box, Button, ChakraProvider, Divider, Flex, HStack, Image, Select, SimpleGrid, Spacer, Stack, Text, VStack } from '@chakra-ui/react'
+import Aos from "aos";
+import "aos/dist/aos.css";
+import  '../Pages/ProductPage.css'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const productdata = {
     "wireless": [
         {
@@ -96,24 +100,70 @@ const productdata = {
     ]
 }
 const ProductPage = () => {
+    useEffect(()=>{
+        Aos.init({duration: 2000});
+      },[])
+ 
+
+      const [data,setData]=useState(productdata.wireless)
+
+      const Sort=(e)=>{
+  
 
 
+        if(e=='a to z'){
+            
+      let New = productdata.wireless.sort((a,b)=> a.name > b.name ?1 : -1)
+      console.log(New)
+      setData([...New])
+        }
+    
+        if(e=='z to a'){
+            
+      let New = productdata.wireless.sort((a,b)=> b.name < a.name ? -1 : 1)
+      console.log(New)
+      setData([...New])
+        }
+       
+       
+
+//High to Low
+//Low To high
+//a to z
+//z to a
+        
+      }
+      const Navigate=useNavigate()
     return (
         <>
         <ChakraProvider>
-        <SimpleGrid  columns={{base:"2",md:2,lg:4}}
+      
+        <Text bg={'gray.200'} fontSize={'1.5rem'} padding='10px 20px'   >Wireless Earbuds</Text>
+        <Divider/>
+       <HStack padding='10px 45px' bg={'gray.200'}> <Spacer/><Text  fontWeight="bold"
+      fontSize={{base:"7px",md:"10px",lg:"16px"}}>Sort By - &nbsp;</Text> 
+       <Select onChange={(e)=>Sort(e.target.value)} borderColor={'gray.500'} 
+       borderRadius={{base:"full",sm:"full"}}  size={{base:"sm",sm:"sm"}} w={{base:"100px",sm:"150px"}} >
+        <option>High to Low</option>
+        <option>Low To high</option>
+        <option>a to z</option>
+        <option>z to a</option>
+       </Select>
+       </HStack>
+      
+        <SimpleGrid  columns={{base:"3",md:3,lg:4}}
 bg="#edf3f8"
 _dark={{
   bg: "#3e3e3e",
 }}
-p={50}
+p={4}
 w="full"
 alignItems="center"
 justifyContent="center"
 >
             {
-                productdata.wireless.map((el) => 
-                <Box mb={5}
+                data.map((el,i) => 
+                <Box  key={i} data-aos="zoom-in" mb={5}
   maxW="xs"
   mx="auto"
   bg="white"
@@ -124,7 +174,7 @@ justifyContent="center"
   rounded="lg"
 >
   <VStack px={1} py={1} >
-  <Image w={"70%"}
+  <Image onClick={()=>Navigate('/singleproductpage')} className='zoom'  w={"70%"}
     h={48}
   
     fit="cover"
@@ -168,16 +218,16 @@ justifyContent="center"
     roundedBottom="lg"
   >
     <Text display='flex' as='h1' color="white" fontWeight="bold" fontSize="sm" >
-    {el.originalprice} &nbsp; <Text marginTop={{base:'',sm:"2px"}} fontWeight="light"  fontSize="xs" as='del'>{el.cutprice} </Text> 
+    {el.originalprice} &nbsp; <Text marginTop={{base:'',md:'',sm:"2px"}} fontWeight="light"  fontSize="xs" as='del'>{el.cutprice} </Text> 
     </Text>
   
     <Button size={{base:"xs",md:"sm"}}
       // px={1}
       // py={1} 
       ml={2}
-      bg="#FF0000"
+      bg= {i%2 ? "#FF0000" : "#f7c20a"}
       fontSize="xs"
-      color="white"
+      color={i%2 ?"white":"black"}
      
       rounded="lg"
       textTransform="uppercase"
