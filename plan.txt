@@ -1,0 +1,17 @@
+[+]creating database for products by using parsehub
+
+[+] create 4 categories for earphones
+
+[+] cart page 
+
+[+]checkout page
+
+[+]add slider on homepage
+
+[+]connection of backend in mongodb 
+
+[+]login signup using passportjs google facebook
+
+[+]Razorpay payment option
+
+[+]deployment

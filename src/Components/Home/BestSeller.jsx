@@ -16,7 +16,7 @@ const BestSeller = ({data, Text}) => {
                 <div  key={el.id}  className='insidediv' >
                 <HoverImage style={{width:"100%"}} src={el.image} hoverSrc={el.hoverimg} width="100%" />
                 <div    className='textdiv' >
-                <a className='heading'  >{el.a}</a> 
+                <p className='heading'  >{el.a}</p> 
                 <span  className='star' > <span style={{color:"red"}}>★</span> {el.span}</span> 
                 <hr />
                 <span className='price' >₹ {el.price} <del className='dell' >₹ {el.del}</del></span> 
