@@ -102,7 +102,7 @@ const Footer = () => {
             </div>
          </div>
          <div className="copyright">
-            <p>© 2022 Imagine Marketing Limited. All Rights Reserved.</p>
+            <p>© 2022 Imagine Marketing Limited. All Rights Reserved..</p>
          </div>
       </div>
    );
