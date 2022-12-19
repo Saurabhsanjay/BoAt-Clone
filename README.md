@@ -62,7 +62,7 @@ Boat Clone is MERN Stack e-commerce web application that allows you to buy Earph
 
 
 
-![cover](https://user-images.githubusercontent.com/91532881/175955112-da88c18c-ac5e-455a-9ac5-047c7db4f894.png)
+![cover](https://i.im.ge/2022/12/19/d413YL.boatj.jpg)
 
 <br />
 
@@ -267,7 +267,7 @@ If you want to contact me, you can reach me through below handles.
 [![linkedin](https://img.shields.io/badge/Saurabh_Ubale-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/saurabh-ubale-035a18234/)
 [![GitHub](https://img.shields.io/badge/Saurabh_Ubale-20232A?style=for-the-badge&logo=Github&logoColor=white)]([https://github.com/m-sehrawat/](https://github.com/Saurabhsanjay))
 
-© 2022 Mohit Sehrawat
+© 2022 Saurabh Ubale
 
 
 
