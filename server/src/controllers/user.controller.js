@@ -23,42 +23,47 @@ const GetUsers = async (req,res)=>{
 }
 
 // Login Route
-const loginUser = async (req, res)=>{
-    const { username, password } = req.body;
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
 
-   // console.log(username, password)
+  if (!email || !password) {
+    return res.status(403).send("Enter credentials");
+  }
 
-    if (!username || !password) {
-        return res.status(403).send("Enter Credianteials");
+  const user = await UserModel.findOne({ email });
+
+  if (!user) {
+    return res.status(404).send("User not found");
+  }
+
+  try {
+    const match = bcrypt.compareSync(password, user.password);
+
+    if (match) {
+      // it will create JWT TOKENS and will return it
+      const { token, refresh_token } = GenerateToken({
+        _id: user._id,
+        email: user.email,
+        username: user.username,
+      });
+
+      return res
+        .status(200)
+        .send({
+          message: "Login success",
+          token,
+          refresh_token,
+          username: user.username,
+          email: user.email,
+          id: user._id,
+        });
+    } else {
+      return res.status(401).send({ message: "Authentication Failed" });
     }
-
-    const User = await UserModel.findOne({ username });
-   console.log(User)
-    // if (!User) return res.status(404).send("User Not Found");
-
-    try {
-        const match = bcrypt.compareSync(password, User.password);
-      
-        if (match) {
-           
-            // it will create JWT TOKENS and will return it
-            const { token, refresh_token } = GenerateToken({
-                _id: User._id,
-                email: User.email,
-                username: User.username,
-            })
-           //console.log(tokens)
-           
-            return res
-                .status(200)
-                .send({ message: "Login success", token, refresh_token, username, id: User._id });
-        } else {
-            return res.status(401).send({ message: "Authentication Failed" });
-        }
-    } catch {
-        return res.status(401).send({ message: "No User Found" });
-    }
-}
+  } catch {
+    return res.status(401).send({ message: "No User Found" });
+  }
+};
 
 // Signup Route
 const registerUser = async (req, res) => {
