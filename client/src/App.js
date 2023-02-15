@@ -9,6 +9,7 @@ import Navbar from './Components/Navbar';
 import AllRoutes from './Components/Routes/AllRoutes';
 import loader from '../src/Components/images/final_loader.gif'
 import Progressbar from './Components/Pages/Progressbar';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 //   const[loading,setLoading]=useState(true)
@@ -28,19 +29,17 @@ function App() {
   //   )
   // }
   return (
-    
-  <div className="App">
-  <Progressbar/>
-    <Navbar/>
+    <div className="App">
+      <ToastContainer />
+      <Progressbar />
+      <Navbar />
 
-    <AllRoutes/>
+      <AllRoutes />
       {/* <Home/> */}
       <ChakraProvider>
-
-      <Footer/>
+        <Footer />
       </ChakraProvider>
     </div>
-    
   );
 }
 

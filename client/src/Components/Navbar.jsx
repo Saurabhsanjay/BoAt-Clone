@@ -226,84 +226,121 @@ const Navbar = () => {
     },
   ];
   return (
-   <ChakraProvider>
-    <Box >
-      <Flex 
-        bg={useColorModeValue('blackAlpha', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
-        minH={'40px'}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
-        borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}>
+    <ChakraProvider>
+      <Box >
         <Flex
-          flex={{ base: 1, md: 'auto' }}
-          ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? <CloseIcon color={"white"} w={8} h={8} /> : <HamburgerIcon color={"white"} w={8} h={8} />
-            }
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
-          />
-        </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            // textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}>
-            <Image p={0}  color='white' w={{base:"50px" , sm:"60px" , md:"80px"}}  src={logo}/>
-          </Text>
-
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-            <DesktopNav />
+          bg={useColorModeValue("blackAlpha", "gray.800")}
+          color={useColorModeValue("gray.600", "white")}
+          minH={"40px"}
+          py={{ base: 2 }}
+          px={{ base: 4 }}
+          borderBottom={1}
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.200", "gray.900")}
+          align={"center"}
+        >
+          <Flex
+            flex={{ base: 1, md: "auto" }}
+            ml={{ base: -2 }}
+            display={{ base: "flex", md: "none" }}
+          >
+            <IconButton
+              onClick={onToggle}
+              icon={
+                isOpen ? (
+                  <CloseIcon color={"white"} w={8} h={8} />
+                ) : (
+                  <HamburgerIcon color={"white"} w={8} h={8} />
+                )
+              }
+              variant={"ghost"}
+              aria-label={"Toggle Navigation"}
+            />
           </Flex>
-        </Flex>
-         <HStack> <Input/> </HStack>
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={'flex-end'}
-          direction={'row'}
-          spacing={6}>
-         {  name? <> <Text ml={3} fontSize={'0.8rem'} fontWeight={"semibold"} textAlign={'center'} color={'white'}>{name}</Text> <Button onClick={handleclear} colorScheme={'red'} size={'xs'}>Logout</Button></> : <>
-          <Button ml={{base:"10px"}}
-           padding='2px 10px'
-            color={'white'}
-            bg={'red.500'}
-            fontSize={'sm'}
-            fontWeight={400}
-            variant={'link'}
-            href={'/login'} 
-            onClick={()=>Navigate('/login')}
+          <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+            <Text
+              // textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+              fontFamily={"heading"}
+              color={useColorModeValue("gray.800", "white")}
             >
-            Sign In
-          </Button>
-          <Button
-            display={{ base: 'inline-flex', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={400}
-            color={'white'}
-            bg={'red.500'}
-            href={'#'}
-            _hover={{
-              bg: 'red.300',
-            }}>
-            Sign Up
-          </Button> </>}
-      
-        </Stack>
-      </Flex>
+              <Image
+                p={0}
+                color="white"
+                w={{ base: "50px", sm: "60px", md: "80px" }}
+                src={logo}
+              />
+            </Text>
 
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
-    </Box>
-   </ChakraProvider>
-  )
+            <Flex display={{ base: "none", md: "flex" }} ml={10}>
+              <DesktopNav />
+            </Flex>
+          </Flex>
+          <HStack>
+            {" "}
+            <Input />{" "}
+          </HStack>
+          <Stack
+            flex={{ base: 1, md: 0 }}
+            justify={"flex-end"}
+            direction={"row"}
+            spacing={6}
+          >
+            {name ? (
+              <>
+                {" "}
+                <Text
+                  ml={3}
+                  fontSize={"0.8rem"}
+                  fontWeight={"semibold"}
+                  textAlign={"center"}
+                  color={"white"}
+                >
+                  {name}
+                </Text>{" "}
+                <Button onClick={handleclear} colorScheme={"red"} size={"xs"}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  ml={{ base: "10px" }}
+                  padding="2px 10px"
+                  color={"white"}
+                  bg={"red.500"}
+                  fontSize={"sm"}
+                  fontWeight={400}
+                  variant={"link"}
+                  href={"/login"}
+                  onClick={() => Navigate("/login")}
+                >
+                  Sign In
+                </Button>
+                <Button
+                  display={{ base: "inline-flex", md: "inline-flex" }}
+                  fontSize={"sm"}
+                  fontWeight={400}
+                  color={"white"}
+                  bg={"red.500"}
+                  href={"/signup"}
+                  onClick={() => Navigate("/signup")}
+                  _hover={{
+                    bg: "red.300",
+                  }}
+                >
+                  Sign Up
+                </Button>{" "}
+              </>
+            )}
+          </Stack>
+        </Flex>
+
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav />
+        </Collapse>
+      </Box>
+    </ChakraProvider>
+  );
 
           }
 
