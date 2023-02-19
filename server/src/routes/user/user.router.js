@@ -1,12 +1,7 @@
 require("dotenv").config();
 
 const { Router } = require("express");
-const {
-  registerUser,
-  loginUser,
-  GetUsers,
-  cartPost,
-} = require("../../controllers/user.controller");
+const { registerUser, loginUser, GetUsers, cartPost } = require("../../controllers/user.controller");
 const { privateRoute } = require("../../middleware/authMiddleware");
 const app = Router();
 
@@ -22,9 +17,9 @@ app.post("/login", loginUser)
 
 // Task Route
 // protected with Private Routes
-app.post("/cart", cartPost);
+app.post("/cart", cartPost)
 
-app.get("/cart", cartPost)
-app.get("/cart/:id", privateRoute, GetUsers)
+app.get("/cart", GetUsers)
+app.get("/task/:id", privateRoute, GetUsers)
 
 module.exports = app;

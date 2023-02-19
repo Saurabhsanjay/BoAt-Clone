@@ -120,18 +120,18 @@ const registerUser = async (req, res) => {
 
 // Task
 const cartPost = async (req, res) => {
-  const { username } = req.body;
+  const { username, image,a, span, price, save } = req.body;
   if (!username) return res.status(403).send("Something went wrong");
 
   try {
-    const cartObj = { image, a, span, price, save };
+    const cartObj = {image ,a, span, price, save };
     let addData = await UserModel.updateOne(
       { username },
-      { $push: { tasks: cartObj } }
+      { $push: { cart: cartObj } }
     );
 
     return res.status(200).send(addData);
-  } catch (e) {
+  } catch (er) {
     return res.status(404).send(er.message);
   }
 };
