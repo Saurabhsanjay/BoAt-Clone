@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   ChakraProvider,
+  CircularProgress,
   Divider,
   Flex,
   Heading,
@@ -38,6 +39,16 @@ const dispatch=useDispatch()
 dispatch(cartData(id))
 
     },[])
+
+    if(loading){
+        return (
+          <CircularProgress
+            isIndeterminate
+            color="red"
+            thickness={0.2}
+          ></CircularProgress>
+        );
+    }
     return (
       <ChakraProvider>
         <Box

@@ -27,8 +27,9 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { action_signin } from '../../../redux/user/user.action';
+import { cartData } from '../../../redux/cart/cart.action';
   const Login = () => {
-    const {loading}=useSelector((state)=>state.user)
+    const {id,loading}=useSelector((state)=>state.user)
     const dispatch=useDispatch()
     const [showPassword, setShowPassword] = useState(false);
     const [login,setLogin]=useState({})
@@ -43,23 +44,7 @@ import { action_signin } from '../../../redux/user/user.action';
       })
     }
 
-    const handleSignInSuccess = () => {
-      toast.success("You have signed in successfully!", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      
-      setTimeout(() => {
-        
-        Navigate("/");
-      }, 1000);
-    };
+  
 
 
     const handlesigninError=(message)=>{
@@ -82,7 +67,25 @@ const handleSumbit=(e)=>{
 }
    
 
-   
+     const handleSignInSuccess = () => {
+       dispatch(cartData(id))
+       toast.success("You have signed in successfully!", {
+         position: "top-center",
+         autoClose: 3000,
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: true,
+         draggable: true,
+         progress: undefined,
+         theme: "light",
+       });
+
+       setTimeout(() => {
+        
+         Navigate("/");
+          window.location.reload();
+       }, 1000);
+     };
   return (
     <>
       {/* <ToastContainer /> */}

@@ -28,9 +28,9 @@ export const userReducer=(state=initialState,action)=>{
           error: false,
         };
       case USER_SIGN_IN_SUCCESS:
+        localStorage.setItem("id", action.payload.id);
          localStorage.setItem("token", action.payload.token);
          localStorage.setItem("username", action.payload.username);
-         localStorage.setItem("id", action.payload.id);
         return {
           ...state,
           auth: true,
@@ -74,9 +74,11 @@ export const userReducer=(state=initialState,action)=>{
           case USER_LOGOUT:
       localStorage.removeItem("token");
       localStorage.removeItem("username");
+      localStorage.removeItem("id");
       return {
         ...state,
         token: null,
+       
         auth:false,
         username: null,
       };

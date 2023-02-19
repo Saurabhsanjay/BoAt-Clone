@@ -68,10 +68,9 @@ const Navbar = () => {
 
   const { isOpen, onToggle } = useDisclosure();
   const DesktopNav = () => {
-    const linkColor = useColorModeValue('gray.600', 'gray.200');
-    const linkHoverColor = useColorModeValue('gray.800', 'white');
+   
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
-    const { colorMode, toggleColorMode } = useColorMode()
+    
     
     return (
       <Stack  direction={'row'} spacing={4}>
