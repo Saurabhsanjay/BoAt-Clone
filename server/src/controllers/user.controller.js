@@ -3,24 +3,22 @@ const UserModel = require("../routes/user/user.model");
 const bcrypt = require("bcrypt");
 const GenerateToken = require("../middleware/CreateToken");
 
+// Get all users / seperate user data
+const GetUsers = async (req, res) => {
+  const { id } = req.params;
 
-// Get all users / seperate user data  
-const GetUsers = async (req,res)=>{
-    
-    const { id } = req.params
-    
-    try {
-        if (id) {
-            let data = await UserModel.findById(id);
-            return res.status(200).send(data);
-        }else{
-            let data = await UserModel.find();
-            return res.status(200).send(data);
-        }  
-    } catch (er) {
-        return res.status(404).send(er.message);
+  try {
+    if (id) {
+      let data = await UserModel.findById(id);
+      return res.status(200).send(data);
+    } else {
+      let data = await UserModel.find();
+      return res.status(200).send(data);
     }
-}
+  } catch (er) {
+    return res.status(404).send(er.message);
+  }
+};
 
 // Login Route
 const loginUser = async (req, res) => {
@@ -47,16 +45,14 @@ const loginUser = async (req, res) => {
         username: user.username,
       });
 
-      return res
-        .status(200)
-        .send({
-          message: "Login success",
-          token,
-          refresh_token,
-          username: user.username,
-          email: user.email,
-          id: user._id,
-        });
+      return res.status(200).send({
+        message: "Login success",
+        token,
+        refresh_token,
+        username: user.username,
+        email: user.email,
+        id: user._id,
+      });
     } else {
       return res.status(401).send({ message: "Authentication Failed" });
     }
@@ -67,86 +63,82 @@ const loginUser = async (req, res) => {
 
 // Signup Route
 const registerUser = async (req, res) => {
-    const {
-        email,
-        password,
-        username,
-    } = req.body;
+  const { email, password, username } = req.body;
 
-//console.log(req.body)
+  //console.log(req.body)
 
+  if (!email || !password || !username) {
+    return res.status(403).send("Enter Credentails");
+  }
 
-    if (!email || !password || !username) {
-        return res.status(403).send("Enter Credentails");
-    }
-
-    try {
-        // checking username and email should be unique , also added in schema
-        const usernameExsist = await UserModel.findOne({ username });
-        const emailExsist = await UserModel.findOne({ email });
-        if ( usernameExsist || emailExsist)
-            return res
-                .status(403)
-                .send({ message: "UserName already exist ,try Different UserName or Email" });
-
-        bcrypt.hash(password, 6, async function (err, hash) {
-            if (err) {
-                return res.status(403).send({ message: "Connection has failed" });
-            }
-
-            const user = await UserModel({
-                email,
-                password: hash,
-                username ,
-                tasks : []
-            });
-
-            await user.save();
-      
-            // it will create JWT TOKENS and will return it
-            const { token, refresh_token } = GenerateToken({
-                _id: user._id,
-                email: user.email,
-                username: user.username,
-            })
-
-            return res
-                .status(200)
-                .send({ message: "Signup success", token, refresh_token, username, id: user._id });
-
+  try {
+    // checking username and email should be unique , also added in schema
+    const usernameExsist = await UserModel.findOne({ username });
+    const emailExsist = await UserModel.findOne({ email });
+    if (usernameExsist || emailExsist)
+      return res
+        .status(403)
+        .send({
+          message: "UserName already exist ,try Different UserName or Email",
         });
-    } catch (er) {
-        return res.status(404).send(er.message);
-    }
-}
 
-// Task 
-const TaskPost = async (req,res) =>{
+    bcrypt.hash(password, 6, async function (err, hash) {
+      if (err) {
+        return res.status(403).send({ message: "Connection has failed" });
+      }
 
-    const { username, task ,dateF} = req.body;
-    if (!username) return res.status(403).send("Something went wrong");
+      const user = await UserModel({
+        email,
+        password: hash,
+        username,
+        tasks: [],
+      });
 
-   try{
-        
-       const taskObj = { task, dateF }  
-       let addData = await UserModel.updateOne(
-           { username },
-           { $push: { tasks: taskObj } }
-       );
+      await user.save();
 
-       return res.status(200).send(addData)
+      // it will create JWT TOKENS and will return it
+      const { token, refresh_token } = GenerateToken({
+        _id: user._id,
+        email: user.email,
+        username: user.username,
+      });
 
-   }catch(e){
-       return res.status(404).send(er.message);
-   }
-}
+      return res
+        .status(200)
+        .send({
+          message: "Signup success",
+          token,
+          refresh_token,
+          username,
+          id: user._id,
+        });
+    });
+  } catch (er) {
+    return res.status(404).send(er.message);
+  }
+};
 
+// Task
+const cartPost = async (req, res) => {
+  const { username } = req.body;
+  if (!username) return res.status(403).send("Something went wrong");
 
+  try {
+    const cartObj = { image, a, span, price, save };
+    let addData = await UserModel.updateOne(
+      { username },
+      { $push: { tasks: cartObj } }
+    );
 
-module.exports =  {
-    GetUsers, loginUser, registerUser, TaskPost
-}
+    return res.status(200).send(addData);
+  } catch (e) {
+    return res.status(404).send(er.message);
+  }
+};
 
-
-
-
+module.exports = {
+  GetUsers,
+  loginUser,
+  registerUser,
+  cartPost,
+};
