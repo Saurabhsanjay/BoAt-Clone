@@ -1,5 +1,6 @@
 
 import {
+  USER_LOGOUT,
   USER_SIGN_IN_ERROR,
   USER_SIGN_IN_LOADING,
   USER_SIGN_IN_SUCCESS,
@@ -8,11 +9,13 @@ import {
   USER_SIGN_UP_SUCCESS,
 } from "./user.types";
 
-const initialState={
-   auth:false,
-    loading:false,
- error:null   
-}
+const initialState = {
+  token: localStorage.getItem("token") || null,
+  username: localStorage.getItem("username") || null,
+  auth: false,
+  loading: false,
+  error: null,
+};
 
 export const userReducer=(state=initialState,action)=>{
     switch (action.type) {
@@ -24,11 +27,14 @@ export const userReducer=(state=initialState,action)=>{
           error: false,
         };
       case USER_SIGN_IN_SUCCESS:
+         localStorage.setItem("token", action.payload.token);
+         localStorage.setItem("username", action.payload.username);
         return {
           ...state,
-          auth:true,
+          auth: true,
           loading: false,
-          data: action.payload,
+          token: action.payload.token,
+          username: action.payload.username,
           error: false,
         };
       case USER_SIGN_IN_ERROR:
@@ -60,8 +66,18 @@ export const userReducer=(state=initialState,action)=>{
           auth:false,
           loading: false,
           error: true,
-          error: true,
+          
         };
+   
+          case USER_LOGOUT:
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      return {
+        ...state,
+        token: null,
+        auth:false,
+        username: null,
+      };
       default: {
         return state;
       }

@@ -17,9 +17,9 @@ app.post("/login", loginUser)
 
 // Task Route
 // protected with Private Routes
-app.post("/task", privateRoute, TaskPost)
+app.post("/cart", TaskPost)
 
-app.get("/task", privateRoute, GetUsers)
+app.get("/cart", GetUsers)
 app.get("/task/:id", privateRoute, GetUsers)
 
 module.exports = app;

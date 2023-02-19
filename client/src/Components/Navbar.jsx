@@ -7,7 +7,7 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
+  Link,chakra,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -32,17 +32,38 @@ import React from 'react'
 import logo from './images/logo.jpg'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
- 
+import { useDispatch, useSelector } from 'react-redux';
+import { action_logout } from '../redux/user/user.action';
+ import { toast } from "react-toastify";
+ import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
-  const name=localStorage.getItem("email")
-  const handleclear=()=>{
-     localStorage.clear()
-     Navigate('/')
-   }
-   
+  const Navigate=useNavigate()
+ 
+  const dispatch=useDispatch();
+  const {username}=useSelector((state)=>state.user)
 
-   const Navigate=useNavigate()
+  const handleclear=()=>{
+  dispatch(action_logout(handleLogutSuccess))
+  
+   }
+    const handleLogutSuccess = () => {
+      toast.error("Logout Successfull!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+
+      setTimeout(() => {
+        Navigate("/login");
+      }, 1000);
+    };
+
   const { isOpen, onToggle } = useDisclosure();
   const DesktopNav = () => {
     const linkColor = useColorModeValue('gray.600', 'gray.200');
@@ -92,7 +113,7 @@ const Navbar = () => {
     );
   };
   
-  const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+  const DesktopSubNav = ({ label, href, subLabel }) => {
     return (
       <Link
         href={href}
@@ -139,7 +160,7 @@ const Navbar = () => {
     );
   };
   
-  const MobileNavItem = ({ label, children, href }: NavItem) => {
+  const MobileNavItem = ({ label, children, href }) => {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
@@ -189,14 +210,8 @@ const Navbar = () => {
     );
   };
   
-  interface NavItem {
-    label: string;
-    subLabel?: string;
-    children?: Array<NavItem>;
-    href?: string;
-  }
-  
-  const NAV_ITEMS: Array<NavItem> = [
+
+  const NAV_ITEMS = [
     {
       label: 'Categories',
       children: [
@@ -227,7 +242,7 @@ const Navbar = () => {
   ];
   return (
     <ChakraProvider>
-      <Box >
+      <Box>
         <Flex
           bg={useColorModeValue("blackAlpha", "gray.800")}
           color={useColorModeValue("gray.600", "white")}
@@ -285,7 +300,7 @@ const Navbar = () => {
             direction={"row"}
             spacing={6}
           >
-            {name ? (
+            {username ? (
               <>
                 {" "}
                 <Text
@@ -295,9 +310,14 @@ const Navbar = () => {
                   textAlign={"center"}
                   color={"white"}
                 >
-                  {name}
+                  {username}
                 </Text>{" "}
-                <Button onClick={handleclear} colorScheme={"red"} size={"xs"}>
+                <Button
+                  onClick={handleclear}
+                  colorScheme={"red"}
+                  size={"sm"}
+                  px={5}
+                >
                   Logout
                 </Button>
               </>
@@ -333,7 +353,40 @@ const Navbar = () => {
               </>
             )}
           </Stack>
-        </Flex>
+       
+            <chakra.span pos="relative" display="inline-block" onClick={()=>Navigate('/cart')} cursor={'pointer'}>
+              <Icon ml={3}  color='whiteAlpha.800'
+                boxSize={8}
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </Icon>
+              <chakra.span
+                pos="absolute"
+                top="-1px"
+                right="-1px"
+                px={2}
+                py={1}
+                fontSize="xs"
+                fontWeight="bold"
+                lineHeight="none"
+                color="red.100"
+                transform="translate(50%,-50%)"
+                bg="red.600"
+                rounded="full"
+              >
+                1
+              </chakra.span>
+            </chakra.span>
+
+           
+          </Flex>
+       
 
         <Collapse in={isOpen} animateOpacity>
           <MobileNav />

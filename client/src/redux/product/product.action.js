@@ -10,7 +10,7 @@ export const fetchData = () => async (dispatch) => {
   dispatch({ type: FETCH_DATA_REQUEST });
 
   try {
-    let res = await axios.get("http://localhost:8080/api/getallproducts");
+    let res = await axios.get("https://dark-sweater-moth.cyclic.app/api/getallproducts");
     dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
     return "OK";
   } catch (error) {
