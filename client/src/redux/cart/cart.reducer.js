@@ -2,16 +2,16 @@ import {
   FETCH_DATA_FAILURE,
   FETCH_DATA_REQUEST,
   FETCH_DATA_SUCCESS,
-} from "./product.types";
+} from "./cart.types";
 
 const initialState = {
-  products: [],
-  
+  cart: [],
+
   loading: false,
   error: null,
 };
 
-export const productReducer = (state = initialState, action) => {
+export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_DATA_REQUEST:
       return {
@@ -22,7 +22,7 @@ export const productReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        products: action.payload,
+        cart: action.payload,
       };
 
     case FETCH_DATA_FAILURE:

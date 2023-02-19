@@ -20,6 +20,6 @@ app.post("/login", loginUser)
 app.post("/cart", cartPost)
 
 app.get("/cart", GetUsers)
-app.get("/task/:id", privateRoute, GetUsers)
+app.get("/cart/:id", GetUsers)
 
 module.exports = app;

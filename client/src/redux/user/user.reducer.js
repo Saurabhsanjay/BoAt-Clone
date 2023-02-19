@@ -12,6 +12,7 @@ import {
 const initialState = {
   token: localStorage.getItem("token") || null,
   username: localStorage.getItem("username") || null,
+  id: localStorage.getItem("id") || null,
   auth: false,
   loading: false,
   error: null,
@@ -29,6 +30,7 @@ export const userReducer=(state=initialState,action)=>{
       case USER_SIGN_IN_SUCCESS:
          localStorage.setItem("token", action.payload.token);
          localStorage.setItem("username", action.payload.username);
+         localStorage.setItem("id", action.payload.id);
         return {
           ...state,
           auth: true,
@@ -43,7 +45,7 @@ export const userReducer=(state=initialState,action)=>{
           auth:false,
           loading: false,
           error: true,
-          error: true,
+         
         };
       case USER_SIGN_UP_LOADING:
         return {

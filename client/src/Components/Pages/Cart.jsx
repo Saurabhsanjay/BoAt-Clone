@@ -8,10 +8,22 @@ import {
   Stack,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { cartData } from "../../redux/cart/cart.action";
 
 
-export const Cart = () => (
-  <ChakraProvider>
+export const Cart = () => {
+    const {cart,loading,error}=useSelector((state)=>state.cart)
+    const {id}=useSelector((state)=>state.user)
+const dispatch=useDispatch()
+
+    useEffect(()=>{
+dispatch(cartData(id))
+
+    },[])
+    return(
+      <ChakraProvider>
     <Box
       bgColor={"white"}
       maxW={{ base: "3xl", lg: "7xl" }}
@@ -46,4 +58,10 @@ export const Cart = () => (
       </Stack>
     </Box>
   </ChakraProvider>
-);
+    )
+}
+
+  
+ 
+   
+
