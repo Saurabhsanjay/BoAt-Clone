@@ -2,9 +2,16 @@ import React from 'react'
 import  '../../App.css'
 import { FaStar } from 'react-icons/fa'
 import HoverImage from "react-hover-image";
+import { useDispatch, useSelector } from 'react-redux';
+import { postCartData } from '../../redux/cart/cart.action';
 
 const BestSeller = ({data, Text}) => {
-  console.log(data)
+  const{username}=useSelector((state)=>state.user);
+  const dispatch=useDispatch();
+const addTocart=(el)=>{
+ dispatch(postCartData({ username, ...el }));
+console.log({ username, ...el });
+}
   return (
     <div >
     <h3 className='hc' >{Text}</h3>
@@ -21,7 +28,7 @@ const BestSeller = ({data, Text}) => {
                 <hr />
                 <span className='price' >₹ {el.price} <del className='dell' >₹ {el.del}</del></span> 
                 <p className='save'>{el.save}</p>
-                <button className='but' >ADD TO CART</button>
+                <button className='but' onClick={()=>addTocart(el)} >ADD TO CART</button>
                 </div>
                 </div>
                 

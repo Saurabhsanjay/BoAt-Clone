@@ -124,7 +124,7 @@ const cartPost = async (req, res) => {
   if (!username) return res.status(403).send("Something went wrong");
 
   try {
-    const cartObj = {image ,a, span, price, save };
+    const cartObj = {image,a, span, price, save };
     let addData = await UserModel.updateOne(
       { username },
       { $push: { cart: cartObj } }

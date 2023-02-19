@@ -7,7 +7,7 @@ import Footer from './Components/Footer';
 // import Home from './Components/Home/Home';
 import Navbar from './Components/Navbar';
 import AllRoutes from './Components/Routes/AllRoutes';
-import loader from '../src/Components/images/final_loader.gif'
+
 import Progressbar from './Components/Pages/Progressbar';
 import { ToastContainer } from 'react-toastify';
 
