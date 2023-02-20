@@ -39,7 +39,8 @@ import { action_logout } from '../redux/user/user.action';
 
 const Navbar = () => {
     const { cart, loading, error } = useSelector((state) => state.cart);
-    console.log(cart?.cart?.length,"nvbar");
+    
+  
   const Navigate=useNavigate()
  
   const dispatch=useDispatch();

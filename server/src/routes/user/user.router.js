@@ -15,7 +15,7 @@ app.post("/register" , registerUser)
 // Signup Route
 app.post("/login", loginUser)
 
-// Task Route
+// cart Route
 // protected with Private Routes
 app.post("/cart", cartPost)
 

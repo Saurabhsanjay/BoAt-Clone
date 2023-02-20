@@ -39,7 +39,14 @@ const dispatch=useDispatch()
 dispatch(cartData(id))
 
     },[])
+const shippingCost = 87.58;
 
+    const subtotal = cart?.cart?.reduce((acc, it) => {
+      return acc + +it.price;
+    }, 0);
+    
+
+const total = subtotal + shippingCost;
     if(loading){
         return (
           <CircularProgress
@@ -73,7 +80,6 @@ dispatch(cartData(id))
                   <CartItem key={item.id} item={item} />
                 ))}
               </Stack>
-              
             </Stack>
 
             <Flex direction="column" align="center" flex="1">
@@ -87,11 +93,12 @@ dispatch(cartData(id))
                 <Heading size="md">Order Summary</Heading>
 
                 <Stack spacing="6">
-                  <OrderSummaryItem label="Subtotal" value="formatPrice597" />
-                  <OrderSummaryItem label="Shipping + Tax">
-                    <Link href="#" textDecor="underline">
-                      Calculate shipping
-                    </Link>
+                  <OrderSummaryItem label="Subtotal" value={subtotal + "/-"} />
+                  <OrderSummaryItem
+                    label="Shipping + Tax"
+                    value={shippingCost + "/-"}
+                  >
+                    <Link href="#" textDecor="underline"></Link>
                   </OrderSummaryItem>
                   <OrderSummaryItem label="Coupon Code">
                     <Link href="#" textDecor="underline">
@@ -103,7 +110,7 @@ dispatch(cartData(id))
                       Total
                     </Text>
                     <Text fontSize="xl" fontWeight="extrabold">
-                      600/-
+                      {total} /-
                     </Text>
                   </Flex>
                 </Stack>

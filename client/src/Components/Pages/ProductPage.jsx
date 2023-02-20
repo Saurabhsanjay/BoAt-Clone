@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react'
-import { background, Box, Button, ChakraProvider, Divider, Flex, HStack, Image, Select, SimpleGrid, Spacer, Stack, Text, VStack } from '@chakra-ui/react'
+import { ChakraProvider, CircularProgress, Divider, Flex, HStack, Image, Select, SimpleGrid, Spacer, Stack, Text, VStack } from '@chakra-ui/react'
 import Aos from "aos";
 import "aos/dist/aos.css";
 import '../Pages/ProductPage.css'
-import { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
-import HoverImage from "react-hover-image";
+
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../../redux/product/product.action';
-
+import { postCartData } from '../../redux/cart/cart.action';
+ import { toast } from "react-toastify";
+ import "react-toastify/dist/ReactToastify.css";
 const ProductPage = () => {
     const dispatch = useDispatch();
     const { products, loading, error } = useSelector((state) => state.products);
+    const { username } = useSelector((state) => state.user);
      
     useEffect(() => {
       dispatch(fetchData());
@@ -19,11 +22,56 @@ const ProductPage = () => {
     }, []);
  
     
-    const Navigate = useNavigate()
-    // if(loading){
-    //   return <div>Loading....</div>
-    // }
-    console.log(products[1]?.wireless);
+  
+  const Navigate = useNavigate();
+  const handleNeedtoLoginfirst = () => {
+    toast.error("You need to Login First", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
+    setTimeout(() => {
+      Navigate("/login");
+    }, 1000);
+  };
+  const handleAddedtoCart = () => {
+    toast.success("Added To Cart", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
+  const addTocart = (el) => {
+    dispatch(
+      postCartData(
+        { username, ...el },
+        handleNeedtoLoginfirst,
+        handleAddedtoCart
+      )
+    );
+    console.log({ username, ...el });
+  };
+    if (loading) {
+      return (
+        <CircularProgress
+          isIndeterminate
+          color="red"
+          thickness={0.2}
+        ></CircularProgress>
+      );
+    }
+
   return (
     <>
       <ChakraProvider>
@@ -59,7 +107,7 @@ const ProductPage = () => {
           {products[1]?.wireless?.map((el, i) => {
             return (
               <div key={i}>
-                <div  className="insidediv">
+                <div className="insidediv">
                   <img
                     className="zoom"
                     style={{ width: "100%" }}
@@ -79,6 +127,7 @@ const ProductPage = () => {
                     </span>
                     <p className="save">{el.savings}</p>
                     <button
+                      onClick={() => addTocart(el)}
                       style={{
                         backgroundColor: i % 2 ? "red" : "yellow",
                         color: i % 2 ? "white" : "black",

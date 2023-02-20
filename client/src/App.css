@@ -134,6 +134,19 @@ body {
 
   /* margin-bottom: 0.5rem; */
 }
+.butn {
+  width: 90%;
+  font-size: 1rem;
+  color: #000000;
+  padding: 0.5rem 0.7rem;
+  /* background-color:#f7c20a ; */
+  background-color: rgb(4, 150, 235);
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+
+  /* margin-bottom: 0.5rem; */
+}
 
 .but:hover {
   background-color: #f7c20a;

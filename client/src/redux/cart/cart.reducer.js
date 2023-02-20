@@ -1,7 +1,7 @@
 import {
-  FETCH_DATA_FAILURE,
-  FETCH_DATA_REQUEST,
-  FETCH_DATA_SUCCESS,
+  CART_DATA_FAILURE,
+  CART_DATA_REQUEST,
+  CART_DATA_SUCCESS,
   POST_DATA_FAILURE,
   POST_DATA_REQUEST,
   POST_DATA_SUCCESS,
@@ -15,19 +15,19 @@ const initialState = {
 
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_DATA_REQUEST:
+    case CART_DATA_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case FETCH_DATA_SUCCESS:
+    case CART_DATA_SUCCESS:
       return {
         ...state,
         loading: false,
         cart: action.payload,
       };
 
-    case FETCH_DATA_FAILURE:
+    case CART_DATA_FAILURE:
       return {
         ...state,
         loading: false,
