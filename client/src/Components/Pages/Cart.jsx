@@ -15,6 +15,7 @@ import {
 import { useEffect } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
 import { cartData } from "../../redux/cart/cart.action";
 import { CartItem } from "./CartItem";
 
@@ -30,6 +31,7 @@ const OrderSummaryItem = (props) => {
   );
 };
 export const Cart = () => {
+  const Navigate=useNavigate();
     const {cart,loading,error}=useSelector((state)=>state.cart)
     const {id}=useSelector((state)=>state.user)
     console.log(cart?.cart?.length,"cartdata")
@@ -115,6 +117,7 @@ const total = subtotal + shippingCost;
                   </Flex>
                 </Stack>
                 <Button
+                  onClick={() => Navigate("/checkout")}
                   colorScheme="blue"
                   size="lg"
                   fontSize="md"
@@ -125,7 +128,10 @@ const total = subtotal + shippingCost;
               </Stack>
               <HStack mt="6" fontWeight="semibold">
                 <p>or</p>
-                <Link color={mode("blue.500", "blue.200")}>
+                <Link
+                  onClick={() => Navigate("/")}
+                  color={mode("blue.500", "blue.200")}
+                >
                   Continue shopping
                 </Link>
               </HStack>

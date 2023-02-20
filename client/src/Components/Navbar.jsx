@@ -280,13 +280,13 @@ const Navbar = () => {
               fontFamily={"heading"}
               color={useColorModeValue("gray.800", "white")}
             >
-              <Image
+              <Image onClick={()=>Navigate('/')} cursor='pointer'
                 p={0}
                 color="white"
                 w={{ base: "50px", sm: "60px", md: "80px" }}
                 src={logo}
               />
-            </Text>
+            </Text> 
 
             <Flex display={{ base: "none", md: "flex" }} ml={10}>
               <DesktopNav />

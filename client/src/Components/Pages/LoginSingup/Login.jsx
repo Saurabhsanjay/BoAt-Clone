@@ -83,7 +83,7 @@ const handleSumbit=(e)=>{
        setTimeout(() => {
         
          Navigate("/");
-          window.location.reload();
+          // window.location.reload();
        }, 1000);
      };
   return (
@@ -92,7 +92,7 @@ const handleSumbit=(e)=>{
 
       <ChakraProvider>
         <Flex
-          minH={"100vh"}
+          pb={5}
           align={"center"}
           justify={"center"}
           bg={useColorModeValue("gray.50", "gray.800")}

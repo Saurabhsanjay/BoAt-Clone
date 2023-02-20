@@ -79,11 +79,9 @@ const Signup = () => {
   };
   return (
     <>
-     
-
       <ChakraProvider>
         <Flex
-          minH={"100vh"}
+          pb={5}
           align={"center"}
           justify={"center"}
           bg={useColorModeValue("gray.50", "gray.800")}
