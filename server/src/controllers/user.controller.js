@@ -135,9 +135,25 @@ const cartPost = async (req, res) => {
     return res.status(404).send(er.message);
   }
 };
+const orderPost = async (req, res) => {
+  const { username, cart } = req.body;
+  if (!username) return res.status(403).send("Something went wrong");
+
+  try {
+    let addData = await UserModel.updateOne(
+      { username },
+      { $push: { orders: { $each: cart } }, $set: { cart: [] } }
+    );
+
+    return res.status(200).send(addData);
+  } catch (er) {
+    return res.status(404).send(er.message);
+  }
+};
+
 
 module.exports = {
-  GetUsers,
+  GetUsers,orderPost,
   loginUser,
   registerUser,
   cartPost,

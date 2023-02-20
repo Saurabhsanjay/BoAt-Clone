@@ -5,7 +5,8 @@ const UserSchema = new Schema({
     username: { type: String, unique: true },
     email: { type: String, unique: true },
     password: { type: String, required: true },
-    cart : { type : Array}
+    cart : { type : Array},
+    orders : { type : Array}
 
 }, { versionKey: false })
 
